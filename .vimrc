@@ -5,11 +5,14 @@
 call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'preservim/nerdtree'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  
+  Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'drewtempelmeyer/palenight.vim'
 call plug#end()
 
 " }}}
@@ -17,15 +20,19 @@ call plug#end()
 let g:gruvbox_italic=1
 let g:gruvbox_termcolors=256
 colorscheme gruvbox
-"set background=dark
+set background=dark
 
 colorscheme onehalflight
 let g:airline_theme='minimalist'
 
 let g:sierra_Twilight = 1
 let g:sierra_Midnight = 1
-let g:sierra_Pitch = 0
-colorscheme sierra 
+let g:sierra_Pitch = 1
+colorscheme palenight
+let g:airline_theme = "palenight"
+let g:palenight_color_overrides = {
+\    'black': { 'gui': '#000000', "cterm": "0", "cterm16": "0" },
+\}
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 " if hidden is not set, TextEdit might fail.
@@ -152,6 +159,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Enable type file detection. Vim will be able to try to detect the type of file in use.
 filetype on
 
+"Bind Fzf Fuzzy Search 
+nnoremap <F6> :Files<CR>
 " Enable plugins and load plugin for the detected file type.
 filetype plugin on
 
