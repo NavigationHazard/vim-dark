@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  
   Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
@@ -25,6 +24,7 @@ set background=dark
 colorscheme onehalflight
 let g:airline_theme='minimalist'
 
+"let g:airline_theme='gruvbox'
 let g:sierra_Twilight = 1
 let g:sierra_Midnight = 1
 let g:sierra_Pitch = 1
@@ -37,7 +37,7 @@ let g:palenight_color_overrides = {
 set nocompatible
 " if hidden is not set, TextEdit might fail.
 set hidden
-
+set rnu
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
@@ -54,6 +54,9 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
+" Ranger configurations
+
+map <F5> :Vex<CR>
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -158,7 +161,8 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Enable type file detection. Vim will be able to try to detect the type of file in use.
 filetype on
-
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4"
 "Bind Fzf Fuzzy Search 
 nnoremap <F6> :Files<CR>
 " Enable plugins and load plugin for the detected file type.
@@ -166,6 +170,7 @@ filetype plugin on
 
 " Load an indent file for the detected file type.
 filetype indent on
+set autoindent 
 
 " Add numbers to each line on the left-hand side.
 set number
