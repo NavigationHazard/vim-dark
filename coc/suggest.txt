@@ -1,0 +1,13 @@
+c6|c695e8|around
+8d|8eddfd|around
+c4e|c4e692|around
+fb59|fb5973|around
+0|000000|around
+guess|guess_terminal|around
+sub|subprocess|around
+|autostart.sh|file
+import|import|around
+lib|libqtile|around
+impo|import|around
+fina|final|clangd
+fin|final|languageserver.clangd
