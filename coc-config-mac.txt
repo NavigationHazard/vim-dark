@@ -1,0 +1,17 @@
+    {                                                                     
+    "languageserver": {
+       "clangd": {
+         "command": "clangd",
+         "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim
+         "filetypes": ["c", "cpp", "objc", "objcpp"],
+       },
+       "ccls": {
+       "command": "ccls",
+          "args": ["--log-file=/tmp/ccls.log"],
+         "rootPatterns": [".ccls-root"],
+         "filetypes": ["c", "cpp", "objc", "objcpp"],
+         "initializationOptions": {
+           "cacheDirectory": "/tmp/ccls"
+         }
+        }
+     },
